@@ -8,5 +8,10 @@
   %body
     .container-fluid
       .sidebar
+        .well
+          %nav
+            %ul
+              %li= link_to "New post...", new_post_path
       .content
+        = render 'layouts/success_message' if flash[:notice]
         = yield
