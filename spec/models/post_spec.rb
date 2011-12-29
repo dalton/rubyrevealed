@@ -49,4 +49,30 @@ describe Post do
       @it.publish
     end
   end
+
+  describe "#pubdate" do
+    describe "before publishing" do
+      it "should be blank" do
+        @it.pubdate.should be_nil
+      end
+    end
+
+    describe "after publishing" do
+      before do
+        @clock = stub("Clock")
+        @now = DateTime.parse("2011-09-11T02:56")
+        @clock.should_receive(:now).and_return(@now)
+        @it.blog = stub("Blog").as_null_object
+        @it.publish(@clock)
+      end
+      it "should be a datetime" do
+        @it.pubdate.class.should == DateTime
+      end
+      it "should be the current time" do
+        @it.pubdate.should == @now
+      end
+    end
+
+
+  end
 end
