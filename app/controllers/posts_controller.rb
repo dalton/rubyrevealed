@@ -5,7 +5,10 @@ class PostsController < ApplicationController
 
   def create
     @post = @blog.new_post(params[:post])
-    @post.publish
-    redirect_to root_path, notice: "Post added!"
+    if @post.publish
+      redirect_to root_path, notice: "Post added!"
+    else
+      render "new"
+    end
   end
 end

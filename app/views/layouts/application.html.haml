@@ -14,4 +14,5 @@
               %li= link_to "New post...", new_post_path
       .content
         = render 'layouts/success_message' if flash[:notice]
+        = render 'layouts/error_message' if flash[:error]
         = yield

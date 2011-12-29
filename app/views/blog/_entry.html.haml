@@ -1,6 +1,7 @@
+- entry = present(entry, self)
 %article
   %header
     %p
       %time{pubdate: "pubdate"}= entry.pubdate
     %h3= entry.title
-  %p= entry.body
+  %p= entry.render_body
