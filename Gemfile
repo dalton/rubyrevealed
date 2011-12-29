@@ -18,7 +18,7 @@ gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-boots
 
 gem 'jquery-rails'
 
-gem 'haml-rails', :group => :development
+gem 'haml-rails'
 
 group :test do
   gem 'database_cleaner'

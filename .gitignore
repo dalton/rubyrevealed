@@ -10,6 +10,10 @@
 # Ignore rubymine configuration
 /.idea
 
+
+# Ignore Rubinius
+/.rbx
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
