@@ -13,7 +13,10 @@ def stub_class(full_name)
     begin
       context.const_get(name)
     rescue
-      context.const_set(name, Class.new{def initialize(*args); end })
+      context.const_set(name, Class.new {
+        def initialize(*args)
+          ;
+        end })
     end
   end
 end

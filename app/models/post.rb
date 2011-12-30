@@ -1,17 +1,18 @@
 require 'date'
-class Post
-  extend ActiveModel::Naming
-  include ActiveModel::Conversion
-  include ActiveModel::Validations
-
+require 'active_record'
+class Post < ActiveRecord::Base
   validates :title, presence: true
 
-  attr_accessor :blog, :title, :body, :pubdate, :image_url
+  attr_accessor :blog
 
-  def initialize(attrs={})
-    attrs.each do |k, v|
-      send("#{k}=", v)
-    end
+  def self.first_before(date)
+    first(conditions: ["pubdate < ?", date],
+          order:      "pubdate DESC")
+  end
+
+  def first_after(date)
+    first(conditions: ["pubdate > ?", date],
+          order:      "pubdate ASC")
   end
 
   def publish(clock=DateTime)
@@ -20,11 +21,19 @@ class Post
     blog.add_entry(self)
   end
 
-  def picture?
-    image_url.present?
+  def prev
+    self.class.first_before(pubdate)
   end
 
-  def persisted?
-    false
+  def next
+    self.class.first_after(pubdate)
+  end
+
+  def up
+    THE_BLOG
+  end
+
+  def picture?
+    image_url.present?
   end
 end

@@ -1,16 +1,10 @@
-require 'rspec/autorun'
-require_relative '../spec_helper_lite'
-require 'active_model'
-require_relative '../../app/models/post'
+require_relative '../spec_helper'
+
 
 describe Post do
   before do
-    @it = Post.new
-  end
-
-  it "should start with blank attributes" do
-    @it.title.should be_nil
-    @it.body.should be_nil
+    @it = Post.new(title: "TITLE")
+    @ar = @it
   end
 
   it "should support reading and writing a title" do
@@ -27,12 +21,6 @@ describe Post do
     blog = Object.new
     @it.blog = blog
     @it.blog.should == blog
-  end
-
-  it "should support setting attributes in the initializer" do
-    it = Post.new(:title => "mytitle", :body => "mybody")
-    it.title.should == "mytitle"
-    it.body.should == "mybody"
   end
 
   it "should not be valid with a blank title" do
@@ -60,7 +48,7 @@ describe Post do
     end
 
     describe "given an invalid post" do
-      before do @it.title = nil end
+      before do @ar.should_receive(:valid?).and_return(false) end
 
       it "should not add the post to the blog" do
         @blog.should_not_receive(:add_entry)
@@ -88,9 +76,6 @@ describe Post do
         @it.blog = stub("Blog").as_null_object
         @it.title = "x"
         @it.publish(@clock)
-      end
-      it "should be a datetime" do
-        @it.pubdate.class.should == DateTime
       end
       it "should be the current time" do
         @it.pubdate.should == @now
