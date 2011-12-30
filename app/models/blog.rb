@@ -2,7 +2,7 @@ class Blog
   attr_reader :entries
   attr_writer :post_maker
 
-  def initialize(entry_fetcher=Post.public_method(:all)) # (ref:default_fetcher)
+  def initialize(entry_fetcher=Post.public_method(:most_recent)) # (ref:default_fetcher)
     @entry_fetcher = entry_fetcher # (ref:fetcher)
   end
 
@@ -25,7 +25,7 @@ class Blog
   end
 
   def entries
-    fetch_entries.sort_by { |e| e.pubdate }.reverse.take(10)
+    fetch_entries
   end
 
   private
