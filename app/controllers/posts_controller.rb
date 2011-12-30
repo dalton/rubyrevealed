@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @blog.new_post(params[:post])
+    @post = Taggable(@blog.new_post(params[:post]))
     if @post.publish
       redirect_to root_path, notice: "Post added!"
     else

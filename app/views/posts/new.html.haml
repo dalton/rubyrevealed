@@ -16,5 +16,8 @@
       .input= f.text_area :body
       = f.label :image_url, "Picture URL:"
       .input= f.text_field :image_url
+      = f.label :tags
+      .input= f.text_field :tags, value: ""
       .actions= f.submit
+
 

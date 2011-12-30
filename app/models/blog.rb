@@ -1,3 +1,4 @@
+require "tag_list"
 class Blog
   attr_reader :entries
   attr_writer :post_maker
@@ -28,6 +29,14 @@ class Blog
     fetch_entries
   end
 
+  def tags
+    []
+  end
+
+  def filter_by_tag(tag)
+    FilteredBlog.new(self, tag)
+  end
+
   private
   def post_maker
     @post_maker || Post.public_method(:new)
@@ -35,6 +44,19 @@ class Blog
 
   def fetch_entries
     @entry_fetcher.()
+  end
+
+  class FilteredBlog < DelegateClass(Blog)
+    include ::Conversions
+
+    def initialize(blog, tag)
+      super(blog)
+      @tag = tag
+    end
+
+    def entries
+      Taggable(super).tagged(@tag)
+    end
   end
 
 end

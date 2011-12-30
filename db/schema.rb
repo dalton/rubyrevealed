@@ -11,13 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230005711) do
+ActiveRecord::Schema.define(:version => 20111230065657) do
+
+  create_table "item_tags", :force => true do |t|
+    t.integer "item_id"
+    t.string  "item_type"
+    t.integer "tag_id"
+  end
 
   create_table "posts", :force => true do |t|
     t.datetime "pubdate"
     t.string   "title"
     t.text     "body"
     t.string   "image_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -5,3 +5,6 @@
       %time{pubdate: "pubdate"}= entry.pubdate
     %h3= entry.title
   %p= entry.render_body
+  %p.entry_tags
+    Tags
+    %span.tags= Taggable(entry).tags
