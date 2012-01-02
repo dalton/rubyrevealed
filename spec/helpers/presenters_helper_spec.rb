@@ -1,9 +1,11 @@
 require_relative '../spec_helper_lite'
 require_relative '../../app/helpers/presenters_helper'
-
-stub_class 'PicturePostPresenter'
-stub_class 'TextPostPresenter'
+require_relative '../../app/presenters/presenter'
+require_relative '../../app/presenters/link_presenter'
+require_relative '../../app/presenters/text_post_presenter'
+require_relative '../../app/presenters/picture_post_presenter'
 stub_class 'Post'
+
 
 describe PresentersHelper do
   before do

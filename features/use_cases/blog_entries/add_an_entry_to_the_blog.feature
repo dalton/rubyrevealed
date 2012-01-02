@@ -4,6 +4,6 @@ Feature: Add an entry
   So people can read what's on my mind
 
   Scenario: First Post
-    Given I am reading the blog
-    When I create a post
+    Given I am an author
+    When I write a post
     Then I should see the post

@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 
   include PresentersHelper
 
+  before_filter :authenticate_author!, except: :show
+
   def new
     @post = @blog.new_post
   end

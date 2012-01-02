@@ -1,0 +1,5 @@
+-e yard-rspec
+-e yard-cucumber
+spec/**/*_spec.rb
+features/**/*.feature
+app/**/*.rb
