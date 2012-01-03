@@ -25,10 +25,8 @@
     .container-fluid
       .sidebar
         .well
-          %nav
-            %ul
           %h4 Tags
-          %nav
+          %nav.tags
             %ul= render partial: "tags/tag_item", collection: Taggable(Post).all_tags
       .content
         = render 'layouts/success_message' if flash[:notice]

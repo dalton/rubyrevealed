@@ -16,11 +16,12 @@ module KnowsScripts
       click_button "Sign in"
     end
 
-    def write_post
+    def write_post(args = {tags: []})
       visit '/'
       click_link 'New post...'
       fill_in "Title", with: post_title
       fill_in "Body", with: post_body
+      fill_in "Tags", with: args[:tags].join(", ")
       click_button "Create Post"
     end
 
