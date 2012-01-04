@@ -1,0 +1,4 @@
+- if @entries.page > 1
+  = link_to "Newer", root_path(page: @entries.page - 1)
+- if @entries.page < @entries.page_count
+  = link_to "Older", root_path(page: @entries.page + 1)

@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.most_recent(limit=10)
-    order("pubdate DESC").limit(limit)
+    order("pubdate DESC")
   end
 
   def publish(clock=DateTime)

@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/dalton/pagination.git
+  revision: 495f9507e6988c7c72061c4cdcd1ff3b983f31bd
+  specs:
+    pagination (0.0.1)
+
+GIT
   remote: http://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: c5912fe60825ffb8567b9c2ef07ebb5fd79101a5
   specs:
@@ -204,6 +210,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  pagination!
   rails (= 3.2.0.rc1)
   rspec-rails
   sass-rails (~> 3.2.0)
