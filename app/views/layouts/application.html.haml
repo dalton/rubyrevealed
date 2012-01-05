@@ -19,9 +19,8 @@
     %header.jumbotron.masthead#overview
       .inner
         .container
-          %h1 Ruby Revealed
-          %p.lead
-            Exposing the secrets of Ruby development wherever I find them
+          %h1= @blog.title
+          %p.lead= @blog.subtitle
     .container-fluid
       .sidebar
         .well

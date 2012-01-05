@@ -8,11 +8,11 @@ class Blog
   end
 
   def title
-    "Watching Paint Dry"
+    "Ruby Revealed"
   end
 
   def subtitle
-    "The trusted source for paint drying news"
+    "Exposing the secrets of Ruby development wherever I find them "
   end
 
   def new_post(*args)
