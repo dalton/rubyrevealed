@@ -8,7 +8,7 @@ Feature: Tagging posts
     Given I am an author
     When I create a post with tags
     Then the tags should be added to the tag list
-    And the tags should be attached to the post
+     And the tags should be attached to the post
 
   Scenario: Finding all posts with a certain tag
     Given tagged posts

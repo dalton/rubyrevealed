@@ -1,6 +1,5 @@
 @http://www.pivotaltracker.com/story/show/22918021
 Feature: Pagination
-
   Scenario: More than 10 posts in the blog
     Given there are 40 posts in the blog
     When I read the blog
