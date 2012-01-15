@@ -20,15 +20,5 @@ describe Blog do
       @it.add_entry(middle)
       @it.entries.should == [newest, middle, oldest]
     end
-
-    it "should be limited to 10 items" do
-      10.times do |i|
-        @it.add_entry(make_entry_with_date("2011-09-#{i+1}"))
-      end
-      oldest = make_entry_with_date("2011-08-30")
-      @it.add_entry(oldest)
-      @it.should have(10).entries
-      @it.entries.should_not include oldest
-    end
   end
 end
