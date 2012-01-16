@@ -1,7 +1,7 @@
 = Ruby Revealed
 
 Ruby Revealed is a blogging platform for people who choose their blogging platform
-based on what language it is written in rahter than its feature set.  This will
-hopefully be a good place to start If you are a Rubyist and want to be able to
+based on what language it is written in rather than its feature set.  This will
+hopefully be a good place to start if you are a Rubyist and want to be able to
 easily extend and enhance your blog. It is also open source and will be discussed
-at rubyrevealed.com.
+at {Ruby Revealed}[http://rubyrevealed.com].
