@@ -50,7 +50,7 @@ class Post < ActiveRecord::Base
     HTTParty.post('http://smooth-water-8493.heroku.com/shorten',
                   body: {
                       key: self.permalink,
-                      link: Rails.application.routes.url_helpers.post_url(self, host: "http://severe-dawn-3970.herokuapp.com/")})
+                      link: Rails.application.routes.url_helpers.post_url(self, host: "severe-dawn-3970.herokuapp.com")})
   end
 
 end
