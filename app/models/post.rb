@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
 
+  after_create :register_permalink
+
   attr_accessor :blog
 
   def self.first_before(date)
@@ -42,4 +44,13 @@ class Post < ActiveRecord::Base
   def picture?
     image_url.present?
   end
+
+  private
+  def register_permalink
+    HTTParty.post('http://smooth-water-8493.heroku.com/shorten',
+                  body: {
+                      key: self.permalink,
+                      link: Rails.application.routes.url_helpers.post_url(self, host: "localhost:3000")})
+  end
+
 end

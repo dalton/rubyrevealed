@@ -6,5 +6,4 @@ Rails32Bootstrap::Application.routes.draw do
   root to: "blog#index"
   resources :posts
 
-  devise_for :authors
 end

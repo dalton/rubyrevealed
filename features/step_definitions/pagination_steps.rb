@@ -1,7 +1,8 @@
-Given /^there are (\d+) posts in the blog$/ do |number_of_posts|
+Given /^there (?:is|are) (\d+) posts? in the blog$/ do |number_of_posts|
   number_of_posts.to_i.times do
     Factory(:post)
   end
+  visit "/"
 end
 
 Then /^I should see the (\d+) most recent posts$/ do |number_of_posts|

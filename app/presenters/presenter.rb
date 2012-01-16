@@ -5,6 +5,10 @@ class Presenter < SimpleDelegator
     super(model)
   end
 
+  def render_heading
+    @template.render(partial: "/posts/heading", locals: {post: self})
+  end
+
   def to_model
     __getobj__
   end

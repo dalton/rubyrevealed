@@ -1,0 +1,4 @@
+%heading
+  %p
+    %time{pubdate: "pubdate"}= post.pubdate
+  %h3= link_to_unless_current post.title, post_path(post.to_param)

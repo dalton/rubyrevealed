@@ -19,7 +19,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = present(Post.find_by_id(params[:id]), self)
-    respond_with(@post)
+    @post = Post.find_by_id(params[:id])
+    respond_with(@post) do |format|
+      format.html
+      format.json { present(@post, self)}
+    end
   end
 end

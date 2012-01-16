@@ -18,3 +18,12 @@ end
 Then /^I should not be able to write a post$/ do
   actor.cannot_write_post
 end
+
+When /^I view the post$/ do
+  actor.read_post(post)
+end
+
+Then /^the permalink should be a short url$/ do
+  actor_is_playing sharer
+  actor.short_permalink?
+end

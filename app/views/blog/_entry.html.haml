@@ -1,10 +1,10 @@
 - entry = present(entry, self)
 %article
-  %header
-    %p
-      %time{pubdate: "pubdate"}= entry.pubdate
-    %h3= entry.title
+  = entry.render_heading
   %p= entry.render_body
   %p.entry_tags
     Tags
     %span.tags= Taggable(entry).tags
+  .permalink
+    Permalink
+    = link_to entry.permalink, "http://smooth-water-8493.heroku.com/#{permalink}"

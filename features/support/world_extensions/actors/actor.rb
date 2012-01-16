@@ -11,7 +11,7 @@ require_relative "../scripts/tag_script"
   end
 
   def actor
-    @actor ||= Actor.new
+    @actor ||= Guest.new
   end
 
   def actor_is_playing(role)

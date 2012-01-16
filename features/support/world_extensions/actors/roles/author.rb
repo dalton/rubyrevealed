@@ -1,7 +1,9 @@
 require_relative "../actor"
 require_relative "../../scripts/author_script"
+require_relative "../../scripts/guest_script"
 module KnowsActors
   class Author < Actor
+    include KnowsScripts::Guest
     include KnowsScripts::Author
 
     attr_accessor :email, :password
